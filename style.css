@@ -1,0 +1,192 @@
+@import url('https://s.id/fontinter');
+
+@media (max-width: 599px) {
+    main #about {
+        flex-direction: column !important;
+        padding: 0;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+:root {
+    --header-bg-color: #F15D41;
+    --text-color: #fff;
+    --bg-color: #F4F6E9;
+    --border-color: #161616;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+}
+
+nav {
+    color: var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 10px;
+    width: calc(100% - 2rem);
+    margin: 1rem;
+}
+
+nav h4 {
+    font-weight: 500;
+    /* margin-left: 1rem; */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li a {
+    padding: 10px;
+    text-decoration: none;
+    color: var(--border-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(241, 131, 131, 0.26);
+    backdrop-filter: blur(5px);
+    transform: scale(1.05);
+}
+
+.header {
+    background: radial-gradient(circle, var(--header-bg-color) 0%, white 100%);
+    color: var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* padding-left: 10px; */
+     font-size: 2rem;
+    /* letter-spacing: -5px; */
+}
+
+.header .box1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5rem;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#history {
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 700;
+    letter-spacing: -5px;
+    font-size: 5rem;
+}
+
+.highlight {
+    background-color: var(--header-bg-color);
+}
+
+main .card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+main .card {
+    padding: 1rem;
+    /* border-radius: 10px; */
+    width: 20rem;
+    margin-bottom: 20px;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    background-color: var(--header-bg-color);
+    color: var(--text-color);
+}
+main .card h2 {
+    font-weight: 900;
+}
+main .card:hover {
+    box-shadow: 0px 0px 20px var(--header-bg-color);
+    transform: scale(1.05);
+    background-color: transparent;
+    color: var(--border-color);
+}
+
+main .card .card-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+main #about {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 3rem;
+    flex-wrap: wrap;
+}
+
+.box1,
+.box2 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.5s ease;
+}
+.box1:hover {
+    transform: scale(1.1);
+}
+.card-about {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 1rem;
+    border: 3px solid var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0px 3px 0px var(--border-color);
+    transition: all 0.3s ease;
+}
+.card-about:hover {
+    box-shadow: 10px 10px 0px var(--border-color);
+    background-color: transparent;
+    color: var(--border-color);
+}
