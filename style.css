@@ -1,5 +1,17 @@
 @import url('https://s.id/fontinter');
-
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+        filter: blur(10px);
+      }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0px);
+      }
+    
+}
 @media (max-width: 599px) {
     main #about {
         flex-direction: column !important;
@@ -9,6 +21,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
   }
 :root {
     --header-bg-color: #F15D41;
@@ -21,11 +34,47 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none;
+}
+
+.cursor {
+    pointer-events: none;
+    padding: 1rem;
+    background-color: #fff;
+    mix-blend-mode: difference;
+    position: fixed;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.cursor.hover {
+    transform: scale(2), translate(-50%, -50%);
 }
 
 body {
     font-family: 'Inter','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    padding: 0.7rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.347);
+    color: var(--text-color);
+    font-weight: 600;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.scroll-top:hover{
+    transform: scale(1.2);
+    background-color: rgba(0, 0, 0, 0.500);
 }
 
 nav {
@@ -38,6 +87,7 @@ nav {
     top: 10px;
     width: calc(100% - 2rem);
     margin: 1rem;
+    
 }
 
 nav h4 {
@@ -77,12 +127,30 @@ nav ul li a:hover {
     /* padding-left: 10px; */
      font-size: 2rem;
     /* letter-spacing: -5px; */
+    scroll-snap-align: start;
 }
 
-.header .box1 {
+.box1,
+.box2 {
+    flex: 1;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.5s ease;
+}
+
+.box1 h1 {
+    animation: scaleUp 1s forwards;
+}
+
+.box1 h2 {
+    animation: scaleUp 1.3s forwards;
+}
+
+.box1:hover {
+    transform: scale(1.1);
 }
 
 main {
@@ -99,6 +167,7 @@ main section {
     gap: 10px;
     min-height: 100vh;
     width: 100%;
+    scroll-snap-align: start;
 }
 
 #history {
@@ -147,6 +216,13 @@ main .card:hover {
     background-color: transparent;
     color: var(--border-color);
 }
+.desc {
+    display: none;
+    transition: all 0.5s ease;
+}
+main .card:hover .desc {
+    display: block;
+}
 
 main .card .card-header {
     display: flex;
@@ -161,20 +237,6 @@ main #about {
     padding: 3rem;
     flex-wrap: wrap;
 }
-
-.box1,
-.box2 {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    transition: all 0.5s ease;
-}
-.box1:hover {
-    transform: scale(1.1);
-}
 .card-about {
     display: flex;
     gap: 10px;
@@ -186,7 +248,29 @@ main #about {
     transition: all 0.3s ease;
 }
 .card-about:hover {
-    box-shadow: 10px 10px 0px var(--border-color);
+    box-shadow: 8px 8px 0px var(--border-color);
     background-color: transparent;
     color: var(--border-color);
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    scroll-snap-align: end;
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid #d3d3d3;
+}
+footer ul li {
+    list-style: none;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: var(--border-color);
+    transition: all 0.3s ease;
+}
+footer ul li a:hover {
+    color: var(--header-bg-color);
+    transform: scale(1.05);
 }
